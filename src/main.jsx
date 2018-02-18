@@ -1,16 +1,21 @@
-import 'babel-polyfill' // generator support
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+import styled, { injectGlobal } from 'styled-components'
+import ostrich from 'ostrich-sans-regular.eot'
 
-import initStore from 'store'
-import App from 'components/app.jsx'
+injectGlobal`
+  @font-face {
+    font-family: test;
+    src: url(${ostrich});
+  }
+`
 
-const store = initStore()
+const Test = styled.div`
+  font-family: test;
+  font-size: 32px;
+`
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Test>This should be in a crazy font, but it isn't</Test>,
   document.getElementById('app')
 )

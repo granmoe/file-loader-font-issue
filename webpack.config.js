@@ -86,9 +86,9 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.eot$/,
         exclude: /node_modules/,
-        loaders: ['style-loader', 'css-loader']
+        loader: 'file-loader'
       }
     ]
   },
